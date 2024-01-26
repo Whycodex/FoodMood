@@ -1,7 +1,7 @@
 import { StatusBar as ExpoStatusBar } from "expo-status-bar";
 import React, { useState, useEffect } from "react";
 import { ThemeProvider } from "styled-components/native";
-import {initializeApp} from "firebase/app";
+import { initializeApp } from "firebase/app";
 
 import {
   useFonts as useOswald,
@@ -12,9 +12,6 @@ import { useFonts as useLato, Lato_400Regular } from "@expo-google-fonts/lato";
 import { theme } from "./src/infrastructure/theme";
 import { Navigation } from "./src/infrastructure/navigation";
 
-import { RestaurantsContextProvider } from "./src/services/restaurants/restaurants.context";
-import { LocationContextProvider } from "./src/services/location/location.context";
-import { FavouritesContextProvider } from "./src/services/favourites/favourites.context";
 import { AuthenticationContextProvider } from "./src/services/authentication/authentication.context";
 
 const firebaseConfig = {
@@ -23,7 +20,7 @@ const firebaseConfig = {
   projectId: "mealstogo-4443c",
   storageBucket: "mealstogo-4443c.appspot.com",
   messagingSenderId: "719610988840",
-  appId: "1:719610988840:web:08848a1c8ac036d6fc281d"
+  appId: "1:719610988840:web:08848a1c8ac036d6fc281d",
 };
 
 initializeApp(firebaseConfig);
@@ -45,13 +42,7 @@ export default function App() {
     <>
       <ThemeProvider theme={theme}>
         <AuthenticationContextProvider>
-          <FavouritesContextProvider>
-            <LocationContextProvider>
-              <RestaurantsContextProvider>
-                <Navigation />
-              </RestaurantsContextProvider>
-            </LocationContextProvider>
-          </FavouritesContextProvider>
+          <Navigation />
         </AuthenticationContextProvider>
       </ThemeProvider>
       <ExpoStatusBar style="auto" />
