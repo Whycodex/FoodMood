@@ -1,7 +1,9 @@
 import { StatusBar as ExpoStatusBar } from "expo-status-bar";
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { ThemeProvider } from "styled-components/native";
+import ReactNativeAsyncStorage from "@react-native-async-storage/async-storage";
 import { initializeApp } from "firebase/app";
+import { initializeAuth, getReactNativePersistence } from "firebase/auth";
 
 import {
   useFonts as useOswald,
@@ -15,15 +17,18 @@ import { Navigation } from "./src/infrastructure/navigation";
 import { AuthenticationContextProvider } from "./src/services/authentication/authentication.context";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAtqWvBLxXITw3X7LZs-ru_dqxjWbtSVOA",
-  authDomain: "mealstogo-4443c.firebaseapp.com",
-  projectId: "mealstogo-4443c",
-  storageBucket: "mealstogo-4443c.appspot.com",
-  messagingSenderId: "719610988840",
-  appId: "1:719610988840:web:08848a1c8ac036d6fc281d",
+  apiKey: "your API KEY",
+  authDomain: "your firebase spec",
+  projectId: "your firebase spec",
+  storageBucket: "your firebase spec",
+  messagingSenderId: "your firebase spec",
+  appId: "your firebase spec"
 };
 
-initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
+const auth = initializeAuth(app, {
+  persistence: getReactNativePersistence(ReactNativeAsyncStorage),
+});
 
 export default function App() {
   const [oswaldLoaded] = useOswald({

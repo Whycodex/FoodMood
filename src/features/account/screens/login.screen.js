@@ -14,6 +14,7 @@ import {
 import { AuthenticationContext } from "../../../services/authentication/authentication.context";
 import { Spacer } from "../../../components/spacer/spacer.component";
 import { Text } from "../../../components/typography/text.component";
+import { colors } from "../../../infrastructure/theme/colors";
 
 export const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");
@@ -21,10 +22,16 @@ export const LoginScreen = ({ navigation }) => {
   const { onLogin, isLoading, error } = useContext(AuthenticationContext);
   return (
     <AccountBackground>
-      <AccountCover />
-      <Title>Meals To Go</Title>
+      {/* <AccountCover />
+      <Title>Food Mood</Title> */}
       <AccountContainer>
         <AuthInput
+          theme={{
+            colors: {
+              primary: colors.brand.primary,
+              background: colors.bg.primary,
+            },
+          }}
           label="E-mail"
           value={email}
           textContentType="emailAddress"
@@ -34,6 +41,12 @@ export const LoginScreen = ({ navigation }) => {
         />
         <Spacer size="large">
           <AuthInput
+            theme={{
+              colors: {
+                primary: colors.brand.primary,
+                background: colors.bg.primary,
+              },
+            }}
             label="Password"
             value={password}
             textContentType="password"
@@ -60,12 +73,12 @@ export const LoginScreen = ({ navigation }) => {
             <ActivityIndicator animating={true} color={Colors.blue300} />
           )}
         </Spacer>
-        <Spacer size="large">
-          <AuthButton mode="contained" onPress={() => navigation.goBack()}>
-            Back
-          </AuthButton>
-        </Spacer>
       </AccountContainer>
+      <Spacer size="large">
+        <AuthButton mode="contained" onPress={() => navigation.goBack()}>
+          Back
+        </AuthButton>
+      </Spacer>
     </AccountBackground>
   );
 };

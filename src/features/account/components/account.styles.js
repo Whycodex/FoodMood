@@ -3,7 +3,7 @@ import { Button, Text, TextInput } from "react-native-paper";
 import { colors } from "../../../infrastructure/theme/colors";
 
 export const AccountBackground = styled.ImageBackground.attrs({
-  source: require("../../../../assets/home_bg.jpg"),
+  source: require("../../../../assets/background.png"),
 })`
   flex: 1;
   align-items: center;
@@ -20,21 +20,25 @@ export const AccountCover = styled.View`
 export const AccountContainer = styled.View`
   background-color: rgba(255, 255, 255, 0.7);
   padding: ${(props) => props.theme.space[4]};
-  margin-top: ${(props) => props.theme.space[2]};
+  margin-top: ${(props) => props.theme.space[3]};
+  border-radius: ${(props) => props.theme.space[3]};
 `;
 
 export const AuthButton = styled(Button).attrs({
   color: colors.brand.primary,
 })`
-  padding: ${(props) => props.theme.space[2]};
+  padding: ${(props) => props.theme.space[1]};
+  height: 45px;
 `;
 
 export const AuthInput = styled(TextInput)`
-  width: 300px;
+  width: 270px;
+  height: 60px;
 `;
 
 export const Title = styled(Text)`
-  font-size: 30px;
+  font-size: ${(props) => props.theme.fontSizes.title};
+  font-family: ${(props) => props.theme.fonts.body};
 `;
 
 export const ErrorContainer = styled.View`
@@ -47,8 +51,8 @@ export const ErrorContainer = styled.View`
 
 export const AnimationWrapper = styled.View`
   width: 100%;
-  height: 40%;
+  height: 70%;
   position: absolute;
-  top: 30px;
-  padding: ${(props) => props.theme.space[2]};
+  top: 290px;
+  padding: ${(props) => props.theme.space[4]};
 `;

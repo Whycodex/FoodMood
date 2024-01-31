@@ -7,8 +7,8 @@ import { MapScreen } from "../../features/map/screens/map.screen";
 import { FavouritesContextProvider } from "../../services/favourites/favourites.context";
 import { LocationContextProvider } from "../../services/location/location.context";
 import { RestaurantsContextProvider } from "../../services/restaurants/restaurants.context";
-import { SettingsScreen } from "../../features/settings/screens/settings.screen";
 import { SettingsNavigator } from "./settings.navigator";
+import { colors } from "../theme/colors";
 
 const Tab = createBottomTabNavigator();
 
@@ -24,6 +24,15 @@ const createScreenOptions = ({ route }) => {
     tabBarIcon: ({ size, color }) => (
       <Ionicons name={iconName} size={size} color={color} />
     ),
+    headerShown: false,
+    tabBarActiveTintColor: colors.brand.primary,
+    tabBarInactiveTintColor: colors.brand.muted,
+    tabBarStyle: [
+      {
+        display: "flex",
+      },
+      null,
+    ],
   };
 };
 
@@ -31,13 +40,7 @@ export const AppNavigator = () => (
   <FavouritesContextProvider>
     <LocationContextProvider>
       <RestaurantsContextProvider>
-        <Tab.Navigator
-          screenOptions={createScreenOptions}
-          tabBarOptions={{
-            activeTintColor: "tomato",
-            inactiveTintColor: "gray",
-          }}
-        >
+        <Tab.Navigator screenOptions={createScreenOptions}>
           <Tab.Screen name="Restaurants" component={RestaurantsNavigator} />
           <Tab.Screen name="Map" component={MapScreen} />
           <Tab.Screen name="Settings" component={SettingsNavigator} />

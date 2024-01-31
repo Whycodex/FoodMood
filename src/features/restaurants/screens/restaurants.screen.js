@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
-import { FlatList, TouchableOpacity } from "react-native";
+import {Pressable } from "react-native";
 import styled from "styled-components/native";
-import { ActivityIndicator, Colors } from "react-native-paper";
+import { ActivityIndicator} from "react-native-paper";
 
 import { SafeArea } from "../../../components/utility/safe-area.component";
 import { Spacer } from "../../../components/spacer/spacer.component";
@@ -14,6 +14,7 @@ import { Search } from "../components/search.component";
 import { RestaurantInfoCard } from "../components/restaurant-info-card.component";
 import { RestaurantList } from "../components/restaurant-list.styles";
 import { FadeInView } from "../../../components/animations/fade.animation";
+import { colors } from "../../../infrastructure/theme/colors";
 
 const Loading = styled(ActivityIndicator)`
   margin-left: -25px;
@@ -33,7 +34,7 @@ export const RestaurantsScreen = ({ navigation }) => {
     <SafeArea>
       {isLoading && (
         <LoadingContainer>
-          <Loading size={50} animating={true} color={Colors.blue300} />
+          <Loading size={50} animating={true} color={colors.brand.primary} />
         </LoadingContainer>
       )}
       <Search
@@ -50,7 +51,7 @@ export const RestaurantsScreen = ({ navigation }) => {
         data={restaurants}
         renderItem={({ item }) => {
           return (
-            <TouchableOpacity
+            <Pressable
               onPress={() =>
                 navigation.navigate("RestaurantDetail", {
                   restaurant: item,
@@ -58,12 +59,11 @@ export const RestaurantsScreen = ({ navigation }) => {
               }
             >
               <Spacer position="bottom" size="large">
-                .
                 <FadeInView>
                   <RestaurantInfoCard restaurant={item} />
                 </FadeInView>
               </Spacer>
-            </TouchableOpacity>
+            </Pressable>
           );
         }}
         keyExtractor={(item) => item.name}

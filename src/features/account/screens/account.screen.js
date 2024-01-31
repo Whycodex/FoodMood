@@ -7,6 +7,7 @@ import {
   AccountBackground,
   AccountContainer,
   AccountCover,
+  AnimationWrapper,
   AuthButton,
   Title,
 } from "../components/account.styles";
@@ -14,17 +15,8 @@ import {
 export const AccountScreen = ({ navigation }) => {
   return (
     <AccountBackground>
-      <AccountCover />
-      <AnimationWrapper>
-        <LottieView
-          key="animation"
-          autoPlay
-          loop
-          resizeMode="cover"
-          source={require("../../../../assets/watermelon.json")}
-        />
-      </AnimationWrapper>
-      <Title>Meals To Go</Title>
+      {/* <AccountCover />
+      <Title>Food Mood</Title> */}
       <AccountContainer>
         <AuthButton
           icon="lock-open-outline"
@@ -41,6 +33,16 @@ export const AccountScreen = ({ navigation }) => {
         >
           Register
         </AuthButton>
+        <AnimationWrapper>
+          <LottieView
+            key="animation"
+            autoPlay
+            loop
+            resizeMode="cover"
+            source={require("../../../../assets/watermelon.json")}
+            style={{ width: "100%", height: "100%" }}
+          />
+        </AnimationWrapper>
       </AccountContainer>
     </AccountBackground>
   );
