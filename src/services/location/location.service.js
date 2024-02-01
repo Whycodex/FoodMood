@@ -1,14 +1,10 @@
 import camelize from "camelize";
 
-import { locations } from "./location.mock";
-
 export const locationRequest = (searchTerm) => {
-  return new Promise((resolve, reject) => {
-    const locationMock = locations[searchTerm];
-    if (!locationMock) {
-      reject("not found");
-    }
-    resolve(locationMock);
+  return fetch(
+    `https://geocode-pynve3kgyq-uc.a.run.app?city=${searchTerm}`
+  ).then((res) => {
+    return res.json();
   });
 };
 

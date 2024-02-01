@@ -3,7 +3,7 @@ const chicago = require("./chicago");
 const toronto = require("./toronto");
 const san_francisco = require("./san_francisco");
 
-export const mocks = {
+module.exports.mocks = {
   "51.219448,4.402464": antwerp,
   "43.653225,-79.383186": toronto,
   "41.878113,-87.629799": chicago,
@@ -27,11 +27,12 @@ const mockImages = [
   "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQagCksUkS5oruinwbA_hUkCai0111WbR7_TQ&usqp=CAU",
   "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxgL_ztzhDHp4lKQOmx3p6C41zmQv2tbu3KA&usqp=CAU",
   "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRTRWZhVq5EPvPZevTaclimtvNV7hZro3vxQ&usqp=CAU",
-  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxW2Pyw6ux6B0KU5hcZGe4CsQW-SSYi8IvgQ&usqp=CAU"
+  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxW2Pyw6ux6B0KU5hcZGe4CsQW-SSYi8IvgQ&usqp=CAU",
 ];
 
 module.exports.addMockImage = (restaurant) => {
-  const randomImage = mockImages[Math.ceil(Math.random()*(mockImages.length-1))]
+  const randomImage =
+    mockImages[Math.ceil(Math.random() * (mockImages.length - 1))];
   restaurant.photos = [randomImage];
   return restaurant;
-}
+};
