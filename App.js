@@ -17,12 +17,12 @@ import { Navigation } from "./src/infrastructure/navigation";
 import { AuthenticationContextProvider } from "./src/services/authentication/authentication.context";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCQGE48_1RQiKeuVRb9nMsYfaUls7h4dkE",
-  authDomain: "foodmood-7234c.firebaseapp.com",
-  projectId: "foodmood-7234c",
-  storageBucket: "foodmood-7234c.appspot.com",
-  messagingSenderId: "528496342358",
-  appId: "1:528496342358:web:d669f10529f6ae746e12f7"
+  apiKey: "firebase config",
+  authDomain: "firebase config",
+  projectId: "firebase config",
+  storageBucket: "firebase config",
+  messagingSenderId: "firebase config",
+  appId: "firebase config"
 };
 
 const app = initializeApp(firebaseConfig);

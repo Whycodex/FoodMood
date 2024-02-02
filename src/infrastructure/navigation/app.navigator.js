@@ -9,11 +9,14 @@ import { LocationContextProvider } from "../../services/location/location.contex
 import { RestaurantsContextProvider } from "../../services/restaurants/restaurants.context";
 import { SettingsNavigator } from "./settings.navigator";
 import { colors } from "../theme/colors";
+import { CartContextProvider } from "../../services/cart/cart.context";
+import { CheckoutNavigator } from "./checkout.navigator";
 
 const Tab = createBottomTabNavigator();
 
 const TAB_ICON = {
   Restaurants: "restaurant",
+  Checkout: "cart",
   Map: "map",
   Settings: "settings",
 };
@@ -40,11 +43,14 @@ export const AppNavigator = () => (
   <FavouritesContextProvider>
     <LocationContextProvider>
       <RestaurantsContextProvider>
-        <Tab.Navigator screenOptions={createScreenOptions}>
-          <Tab.Screen name="Restaurants" component={RestaurantsNavigator} />
-          <Tab.Screen name="Map" component={MapScreen} />
-          <Tab.Screen name="Settings" component={SettingsNavigator} />
-        </Tab.Navigator>
+        <CartContextProvider>
+          <Tab.Navigator screenOptions={createScreenOptions}>
+            <Tab.Screen name="Restaurants" component={RestaurantsNavigator} />
+            <Tab.Screen name="Checkout" component={CheckoutNavigator} />
+            <Tab.Screen name="Map" component={MapScreen} />
+            <Tab.Screen name="Settings" component={SettingsNavigator} />
+          </Tab.Navigator>
+        </CartContextProvider>
       </RestaurantsContextProvider>
     </LocationContextProvider>
   </FavouritesContextProvider>
