@@ -15,9 +15,9 @@ export const CartIconContainer = styled.View`
 `;
 
 export const PaymentProcessing = styled(ActivityIndicator).attrs({
-  size: 128,
+  size: 80,
   animating: true,
-  color: Colors.blue300,
+  color: colors.brand.primary,
 })`
   position: absolute;
   top: 50%;
@@ -32,11 +32,13 @@ export const CartIcon = styled(Avatar.Icon).attrs({
 `;
 
 export const NameInput = styled(TextInput)`
-  margin: ${(props) => props.theme.space[3]};
+  margin: 16px;
+  width: 327px;
 `;
 
+
 export const PayButton = styled(Button).attrs({
-  color: colors.brand.primary,
+  color: colors.ui.success,
 })`
   width: 80%;
   align-self: center;
@@ -44,9 +46,10 @@ export const PayButton = styled(Button).attrs({
 `;
 
 export const ClearButton = styled(Button).attrs({
-  color: colors.ui.error,
+  color: colors.brand.primary,
 })`
   width: 80%;'
   align-self: center;
   padding: ${(props) => props.theme.space[2]};
+  margin-bottom: ${(props) => props.theme.space[2]};
 `;

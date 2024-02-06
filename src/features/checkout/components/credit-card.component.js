@@ -19,7 +19,7 @@ export const CreditCardInput = ({ name, onSuccess, onError }) => {
         const info = await cardTokenRequest(card);
         onSuccess(info);
       } catch (e) {
-        onError(e);
+        onError();
       }
     }
   };
