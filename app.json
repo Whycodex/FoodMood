@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Food Mood",
-    "slug": "Food Mood",
+    "name": "FoodMood",
+    "slug": "FoodMood",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -24,13 +24,19 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.whycodex.FoodMood"
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
     "plugins": [
       "expo-font"
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "939cefca-097e-41bb-bf5f-03e3773628bf"
+      }
+    }
   }
 }

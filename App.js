@@ -17,7 +17,7 @@ import { Navigation } from "./src/infrastructure/navigation";
 import { AuthenticationContextProvider } from "./src/services/authentication/authentication.context";
 
 const firebaseConfig = {
-  apiKey: "Your firebase api key",
+  apiKey: "API key",
   authDomain: "foodmood-7234c.firebaseapp.com",
   projectId: "foodmood-7234c",
   storageBucket: "foodmood-7234c.appspot.com",

@@ -6,7 +6,7 @@ const { payRequest } = require("./pay");
 
 const { Stripe } = require("stripe");
 const stripeClient = new Stripe(
-  "stripe secret key"
+  "stripe key"
 );
 
 setGlobalOptions({ maxInstances: 10 });

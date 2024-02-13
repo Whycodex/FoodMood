@@ -39,7 +39,7 @@ export const AccountScreen = ({ navigation }) => {
             autoPlay
             loop
             resizeMode="cover"
-            source={require("../../../../assets/watermelon.json")}
+            source={require("../../../../assets/pin.json")}
             style={{ width: "100%", height: "100%" }}
           />
         </AnimationWrapper>
